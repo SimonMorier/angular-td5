@@ -1,1 +1,35 @@
-<!-- Affichage d'un passager -->
+<div
+  style="
+    display: grid;
+    grid-template-columns: minmax(auto, 100px) 1fr 1fr 1fr;
+    margin-bottom: 2%;
+    align-items: start;
+  "
+  [matTooltip]="passager.email"
+>
+  @if(showPicture) {
+  <img
+    [src]="passager.image"
+    alt=""
+    style="border-radius: 100px; justify-self: center"
+  />
+  }@else {
+  <div style="width: 100px; align-self: center"></div>
+  }
+
+  <span style="justify-self: center">{{ passager.nom }}</span>
+
+  <span [appVolClasse]="passager.classeVol" style="justify-self: center">
+    {{ passager.classeVol }}
+  </span>
+
+  <div
+    appBagages
+    [classe]="passager.classeVol"
+    [bagages]="passager.nbBagagesSoute"
+    style="display: flex; justify-self: center; width: 100%"
+  >
+    <mat-icon style="padding-left: 45%">local_mall</mat-icon>
+    <span>x{{ passager.nbBagagesSoute }}</span>
+  </div>
+</div>

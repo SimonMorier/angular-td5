@@ -1,16 +1,23 @@
 <div class="container">
-  <div class="title"><h1>DECOLLAGES</h1></div>
+  <div class="title">
+    <h1>{{ title }}</h1>
+  </div>
   <div class="sections">
     <div class="left">
       <div class="top">
-        <app-filtres></app-filtres>
+        <app-filtres (filterApplied)="getFilterData($event)"></app-filtres>
       </div>
       <div class="bottom">
-        <app-liste-vols></app-liste-vols>
+        <app-liste-vols
+          [volListe]="volListe"
+          (volClicked)="getVol($event)"
+        ></app-liste-vols>
       </div>
     </div>
     <div class="right">
-      <app-liste-passagers></app-liste-passagers>
+      <app-liste-passagers
+        [passagerListe]="passagerListe"
+      ></app-liste-passagers>
     </div>
   </div>
 </div>

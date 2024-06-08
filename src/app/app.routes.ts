@@ -3,9 +3,15 @@ import { ViewAirFranceComponent } from './components/view-airfrance/view-airfran
 
 export const routes: Routes = [
   {
-    path: 'decollages', component: ViewAirFranceComponent
+    path: 'decollages',
+    component: ViewAirFranceComponent,
   },
   {
-    path: '**', redirectTo: 'decollages'
-  }
+    path: 'atterrissages',
+    component: ViewAirFranceComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'decollages',
+  },
 ];

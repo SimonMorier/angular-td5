@@ -22,7 +22,13 @@
   }
 
   .apply-button {
+    margin-bottom: 2.5%;
     background-color: $accent;
+    color: white;
+  }
+
+  .apply-button.valid-button {
+    background-color: red;
     color: white;
   }
 }

@@ -1,1 +1,38 @@
-<!-- Affichage d'un vol -->
+<div
+  style="
+    display: grid;
+    grid-template-columns: 10% 15% 15% 10% 10% 10% auto;
+    margin-bottom: 2%;
+    align-items: center;
+    cursor: pointer;
+  "
+  (click)="emitVol(vol)"
+>
+  @if (path == 'decollages') {
+  <div style="display: flex; justify-content: center">
+    <mat-icon>flight_takeoff</mat-icon>
+  </div>
+  }@else {
+  <div style="display: flex; justify-content: center">
+    <mat-icon>flight_land</mat-icon>
+  </div>
+  }
+
+  <span style="text-align: center">{{ vol.icao }}</span>
+  <span style="text-align: center">{{ vol.matricule }}</span>
+  <span style="text-align: center">{{ vol.aeroportDepart }}</span>
+  <div
+    class="fleche"
+    style="justify-self: center; display: flex; justify-content: center"
+  >
+    <mat-icon>arrow_right_alt</mat-icon>
+  </div>
+  <span style="text-align: center">{{
+    vol.aeroportArrivee ? vol.aeroportArrivee : "Inconnu"
+  }}</span>
+  <img
+    style="width: 120px; height: 30px; justify-self: center"
+    [src]="'../../../assets/' + vol.compagnie + '.png'"
+    alt=""
+  />
+</div>

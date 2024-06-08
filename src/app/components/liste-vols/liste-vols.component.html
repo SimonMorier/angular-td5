@@ -1,1 +1,3 @@
-<!-- Affichage de la liste des vols -->
+@for(vol of volListe; track volListe){
+<app-vol [vol]="vol" (volClicked)="emitVol($event)"></app-vol>
+}

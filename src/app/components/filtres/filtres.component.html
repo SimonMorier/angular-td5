@@ -1,21 +1,31 @@
-<div class="filtres-container">
+<div class="filtres-container" [formGroup]="formFilter">
   <mat-form-field appearance="outline">
     <mat-label>Aéroport</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let aeroport of aeroports" [value]="aeroport">{{ aeroport.ville + ' - ' + aeroport.nom }}</mat-option>
+    <mat-select formControlName="aeroport">
+      <mat-option *ngFor="let aeroport of aeroports" [value]="aeroport">{{
+        aeroport.ville + " - " + aeroport.nom
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Dates</mat-label>
     <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Date de début">
-      <input matEndDate placeholder="Date de fin">
+      <input matStartDate formControlName="debut" placeholder="Date de début" />
+      <input matEndDate formControlName="fin" placeholder="Date de fin" />
     </mat-date-range-input>
     <mat-hint>Entrez une période de 3 jours</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
 
-  <button class="apply-button" mat-flat-button>Appliquer</button>
+  <button
+    class="apply-button"
+    mat-flat-button
+    [disabled]="!formFilter.valid"
+    (click)="applyFilters()"
+    [ngClass]="{ 'valid-button': formFilter.valid }"
+  >
+    Appliquer
+  </button>
 </div>

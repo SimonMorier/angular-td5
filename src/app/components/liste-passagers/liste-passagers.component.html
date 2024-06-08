@@ -1,3 +1,6 @@
-<!-- Affichage de la liste des passagers -->
-
-
+<mat-slide-toggle style="margin-bottom: 4%" [(ngModel)]="isChecked"
+  >Afficher les photos</mat-slide-toggle
+>
+@for(passager of passagerListe; track passagerListe){
+<app-passager [passager]="passager" [showPicture]="isChecked"></app-passager>
+}
