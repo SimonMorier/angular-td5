@@ -12,7 +12,7 @@ pages:
     - npm install
     - ng build
     - mkdir -p public
-    - mv dist/angular-td5/browser/* public/
+    - mv docs/angular-td5/browser/* public/
   artifacts:
     paths:
       - public
